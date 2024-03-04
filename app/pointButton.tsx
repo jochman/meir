@@ -4,7 +4,7 @@ interface Props {
   point: string;
   setPoint: Dispatch<SetStateAction<string>>;
 }
-export function PointButton({ point, setPoint }: Props) {
+export default function PointButton({ point, setPoint }: Props) {
   const [input, setChange] = useState<string>(point);
   return (
     <div style={{ backgroundColor: "white" }}>

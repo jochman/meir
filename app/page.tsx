@@ -3,7 +3,7 @@ import Example from "./table";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { useState } from "react";
-import { PointButton } from "./pointButton";
+import PointButton from "./pointButton";
 export default function Home() {
   const [point, setPoint] = useState<string>("34.7793103,32.0253497");
 

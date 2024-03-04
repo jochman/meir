@@ -1,6 +1,4 @@
-"use client";
-
-import { Dispatch, SetStateAction, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   useMaterialReactTable,
   type MRT_ColumnDef,
