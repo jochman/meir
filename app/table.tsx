@@ -56,7 +56,7 @@ function Example() {
         header: "עדכון",
         accessorFn: (originalRow) =>
           originalRow?.data?.PL_DATE_8
-            ? new Date(originalRow.data.PL_DATE_8)
+            ? new Date(originalRow.updated_at)
             : null,
         Cell: ({ cell }) =>
           cell.getValue<Date>()
