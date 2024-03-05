@@ -1,3 +1,4 @@
+"use client";
 import { Button, TextField } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
 interface Props {

@@ -6,6 +6,7 @@ import {
   MRT_PaginationState,
 } from "material-react-table";
 import { MRT_Localization_HE } from "material-react-table/locales/he";
+import PointButton from "./pointButton";
 //example data type
 type Plan = {
   PL_NUMBER: string;
@@ -21,10 +22,7 @@ type Plan = {
   };
 };
 
-interface Props {
-  point: string;
-}
-function Example({ point }: Props) {
+function Example() {
   //should be memoized or stable
   const columns = useMemo<MRT_ColumnDef<Plan>[]>(
     () => [
@@ -74,7 +72,7 @@ function Example({ point }: Props) {
   const [isLoading, setIsLoading] = useState(false);
   const [isRefetching, setIsRefetching] = useState(false);
   const [rowCount, setRowCount] = useState(0);
-
+  const [point, setPoint] = useState<string>("34.7793103,32.0253497");
   const [pagination, setPagination] = useState<MRT_PaginationState>({
     pageIndex: 0,
     pageSize: 20,
@@ -108,11 +106,11 @@ function Example({ point }: Props) {
       setIsRefetching(false);
     };
     fetchData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [
     pagination.pageIndex, //re-fetch when page index changes
     pagination.pageSize, //re-fetch when page size changes
     point,
+    data.length,
   ]);
   const table = useMaterialReactTable({
     columns,
@@ -141,6 +139,9 @@ function Example({ point }: Props) {
       showProgressBars: isRefetching,
     },
     paginationDisplayMode: "pages",
+    renderTopToolbarCustomActions: () => (
+      <PointButton point={point} setPoint={setPoint}></PointButton>
+    ),
   });
 
   return (
