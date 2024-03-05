@@ -1,5 +1,6 @@
 import { Button, TextField } from "@mui/material";
 import { Dispatch, SetStateAction, useState } from "react";
+
 interface Props {
   point: string;
   setPoint: Dispatch<SetStateAction<string>>;
@@ -7,7 +8,7 @@ interface Props {
 export default function PointButton({ point, setPoint }: Props) {
   const [input, setChange] = useState<string>(point);
   return (
-    <div style={{ backgroundColor: "white" }}>
+    <div style={{ backgroundColor: "white" }} dir="rtl">
       <TextField
         id="outlined-basic"
         label="נקודה"
